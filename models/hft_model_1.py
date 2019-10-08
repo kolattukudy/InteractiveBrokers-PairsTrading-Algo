@@ -235,6 +235,8 @@ class HftModel1(BaseModel):
 		The midpoint of prices are stored in the pandas DataFrame `df_hist`.
 		"""
 		for contract in self.contracts:
+			# self.ib.reqHistoricalDataAsync()
+			# self.ib.reqHistoricalDataAsync()
 			self.set_historical_data(contract)
 
 	def set_historical_data(self, contract):

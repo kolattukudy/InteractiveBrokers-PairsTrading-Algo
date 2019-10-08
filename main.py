@@ -6,7 +6,7 @@ from models.hft_model_1 import HftModel1
 
 if __name__ == '__main__':
 	TWS_HOST = os.environ.get('TWS_HOST', '127.0.0.1')
-	TWS_PORT = os.environ.get('TWS_PORT', 4002)
+	TWS_PORT = os.environ.get('TWS_PORT', 7497)
 
 	print('Connecting on host:', TWS_HOST, 'port:', TWS_PORT)
 
@@ -20,10 +20,15 @@ if __name__ == '__main__':
 		('SPY', Stock('SPY','SMART','USD')),
 		('QQQ', Stock('QQQ','SMART','USD')),
 	]
+	# to_trade = [
+	# 	('EUR.USD',Forex('EURUSD')),
+	# 	('USD.JPY',Forex('USDJPY'))
+	# 	('QQQ', Stock('QQQ','SMART','USD')),
+	# ]
 
 	# to_trade = [
-	# 	Stock('QQQ', 'SMART', 'USD'),
-	# 	Stock('SPY', 'SMART', 'USD')
+	# 	Stock('RDS A', 'SMART', 'USD'),
+	# 	Stock('BP', 'SMART', 'USD')
 	# ]
 
 	model.run(to_trade=to_trade, trade_qty=100)

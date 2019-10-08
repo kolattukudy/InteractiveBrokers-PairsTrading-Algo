@@ -61,9 +61,18 @@ class BaseModel(object):
 
 	def request_all_contracts_data(self, fn_on_tick):
 		for contract in self.contracts:
+			self.ib.reqMarketDataType(3)
 			self.ib.reqMktData(contract,)
+			# self.ib.reqMktData(contract,'',False,False)
 
 		self.ib.pendingTickersEvent += fn_on_tick
+
+	# def reqMarketDataType(self, marketDataType):
+	# 	for contract in self.contracts:
+	# 		self.ib.reqMktDataType(contract,)
+
+		# self.ib.send(59,1,3)
+		# self.send(59,1,3)
 
 	def place_market_order(self, contract, qty, fn_on_filled):
 		order = MarketOrder(order_util.get_order_action(qty), abs(qty))
